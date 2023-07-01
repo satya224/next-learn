@@ -62,6 +62,7 @@ const Members = () => {
         setFormStatus(prevState => !prevState)
     }
 
+    const userEmail = (process.env.NEXT_PUBLIC_AUTHORIZED_ADMIN_EMAIL as string).split(' ');
     const table = <>
         <div className={styles.tableWrapper}>
             {
@@ -98,7 +99,7 @@ const Members = () => {
         {
             status === "authenticated"
             &&
-            data?.user?.email === process.env.NEXT_PUBLIC_AUTHORIZED_ADMIN_EMAIL
+            userEmail.includes(data?.user?.email ?? "-*/-")
             &&
             <button className={styles.addMore} onClick={() => addMore(false)}>
                 Add More
