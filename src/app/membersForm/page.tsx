@@ -32,7 +32,7 @@ const formatDate = (date: Date, type: string) => {
 }
 
 const sendData = async (formData: FormInput) => {
-    const res = await fetch("http://localhost:3000/api/members", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/members`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

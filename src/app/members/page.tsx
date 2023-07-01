@@ -23,7 +23,7 @@ interface Member {
 
 const fetchData = async () => {
     console.log("fetch data")
-    const res = await fetch("http://localhost:3000/api/members", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/members`, {
         cache: "no-store",
     });
 
